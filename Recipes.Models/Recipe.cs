@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Recipes.Models
 {
-    public class Recipe
+	public class Recipe
     {
         public virtual Guid RecipeId { get; set; }
         public virtual string Name { get; set; }

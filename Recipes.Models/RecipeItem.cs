@@ -9,5 +9,5 @@ namespace Recipes.Models
         public virtual float Quantity { get; set; }
 
         public virtual string MeasurementUnit { get; set; }
-      }
+    }
 }

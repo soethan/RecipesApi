@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Recipes.DataAccess;
 using Recipes.DataAccess.Common;
 using Recipes.Models.Configuration;
+using WebApiContrib.Core.Formatter.Protobuf;
 
 namespace RecipesApp.Api
 {
@@ -20,7 +21,9 @@ namespace RecipesApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(options => {
+				options.OutputFormatters.Insert(0, new ProtobufOutputFormatter(new ProtobufFormatterOptions()));
+			});
 
 			services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 			services.AddOptions();
